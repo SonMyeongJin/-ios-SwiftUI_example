@@ -12,11 +12,14 @@ var landmarks: [Landmark] = load("landmarkData.json")
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
 
+    print("로드 실행했다")
 
     guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
     else {
+        print("Error: File not found: \(filename)")
         fatalError("Couldn't find \(filename) in main bundle.")
     }
+    print("File found at path: \(file)")
 
 
     do {
