@@ -13,6 +13,7 @@ struct CategoryHome: View {
     var body: some View {
         NavigationSplitView {
             List {
+                // 맨위 가장 큰 추천사진
                 modelData.features[0].image
                     .resizable()
                     .scaledToFill()
@@ -20,6 +21,7 @@ struct CategoryHome: View {
                     .clipped()
                     .listRowInsets(EdgeInsets())
                 
+                // 링크 연결된 목록 사진
                 ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
                     CategoryRow(categoryName: key, items: modelData.categories[key]!)
                 }
